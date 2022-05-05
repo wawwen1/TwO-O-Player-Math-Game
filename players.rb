@@ -8,7 +8,20 @@ class Players
   end
 
   def alive?
-    @Lives == 0
+    @lives == 0
   end
-  
+
+  def question_new
+    question = Questions.new
+    question.question_prompt(name)
+    @answer = $stdin.gets.chomp.to_i
+
+    if question.answer_check?(@answer) 
+       puts "YES! You are correct." 
+    else 
+      puts "Seriously? No."
+      @lives -= 1
+    end
+  end
+
 end
