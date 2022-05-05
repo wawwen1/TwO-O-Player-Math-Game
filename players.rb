@@ -6,4 +6,9 @@ class Players
     @name = name
     @lives = 3
   end
+
+  def alive?
+    @Lives == 0
+  end
+  
 end
